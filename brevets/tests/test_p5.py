@@ -11,9 +11,11 @@ logging.basicConfig(format='%(levelname)s:%(message)s',
 log = logging.getLogger(__name__)
 
 def test_insert():
+    db.controls.delete_many({})
     db.controls.insert({'km':100, 'open': '2021-01-01T02:56', 'close': '2021-01-01T06:40', 'test': 'yes'})
-    assert db.controls.find({'km':100, 'test':'yes'}) != None
-    db.controls.deleteOne({"test":"yes"})
+    assert db.controls.find_one({'km':100, 'test':'yes'}) != None
+    db.controls.delete_many({})
+    assert db.controls.find_one({'km':100, 'test':'yes'}) == None
 
 def test_calc_open():
     assert open_time(100,200,'2021-01-01T00:00').format('YYYY-MM-DDTHH:mm') == '2021-01-01T02:56'
