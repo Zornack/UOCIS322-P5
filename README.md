@@ -25,7 +25,7 @@ Insert adds km, open and close times to a database. Requires a valid final contr
 
 Display renders a new page with the data from the database.
 
-##Algorithm:
+## Algorithm:
 
 Min and max speeds and their respective distances are stored in tuples in lists. 
 
