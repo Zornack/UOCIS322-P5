@@ -25,6 +25,13 @@ Insert adds km, open and close times to a database. Requires a valid final contr
 
 Display renders a new page with the data from the database.
 
+#Algorithm:
+
+Min and max speeds and their respective distances are stored in tuples in lists. 
+
+Open time pulls the start time from flask_brevets then finds the largest applicable speed range, calculates the elapsed hours from that bracket, then works down through the other brackets until complete. It returns the arrow object with the time shifted according to the calculated time.
+
+Close time is similar except it overrides the distance with the brevet distance if it is greater than the brevet distance and has hardcoded close times for the final control.
 
 ## Credits
 
