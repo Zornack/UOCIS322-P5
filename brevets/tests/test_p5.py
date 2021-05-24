@@ -14,7 +14,8 @@ def test_insert():
     db.controls.deleteOne({"test":"yes"})
     assert db.controls.find({'km':100, 'test':'yes'}) == None
 
-def test_calc():
+def test_calc_open():
     assert open_time(100,200,'2021-01-01T00:00').format('YYYY-MM-DDTHH:mm') == '2021-01-01T02:56'
+def test_calc_close():
     assert close_time(300,600,'2021-01-01T00:00').format('YYYY-MM-DDTHH:mm') == '2021-01-01T20:00'
 

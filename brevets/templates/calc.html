@@ -162,7 +162,6 @@
 
 					var clickDist = $("#brevet_dist_km").val();
 					console.log(clickDist)
-					longEnough = false
 					console.log(brevArray.length)
 					$("#displayError").text("")
 					brevArray = []
@@ -180,17 +179,6 @@
 						return
 					}
 					
-					for ( i = 0; i < brevArray.length; i ++ ) {
-							if ( parseInt(brevArray[i]['km']) >= clickDist ){
-								longEnough = true
-							}
-					}
-					
-					if ( longEnough == false ){
-						$("#displayError").html("There must be a control at least as long as the brevet".fontcolor('red'))
-						return
-					}
-			
 					bpush.preventDefault();
 					console.log(brevArray)
 					stringArray = JSON.stringify(brevArray)
