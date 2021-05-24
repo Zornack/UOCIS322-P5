@@ -1,6 +1,8 @@
 from acp_times import open_time, close_time
 import flask_brevets
 from flask_brevets import insert
+from flask_brevets import client
+from flask_brevets import db
 import nose
 import logging
 from pymongo import MongoClient
