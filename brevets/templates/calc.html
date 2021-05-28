@@ -176,6 +176,9 @@
 					
 					if ( somethingThere == false ) {
 						$("#displayError").html("Nothing to insert".fontcolor('red'))
+						stringArray = JSON.stringify(brevArray)
+						$.post(INSERT_URL, {stringArray: stringArray}, function(out){
+					}, "json");
 						return
 					}
 					

@@ -33,6 +33,8 @@ def open_time(control_dist_km, brevet_dist_km, brevet_start_time):
        An ISO 8601 format date string indicating the control open time.
        This will be in the same time zone as the brevet start time.
     """
+    if control_dist_km == 0:
+        return arrow.get(brevet_start_time)
     if control_dist_km >= brevet_dist_km:
         control_dist_km = brevet_dist_km
     start_time = arrow.get(brevet_start_time)
@@ -63,7 +65,7 @@ def close_time(control_dist_km, brevet_dist_km, brevet_start_time):
        This will be in the same time zone as the brevet start time.
     """
     if control_dist_km == 0:
-        return brevet_start_time.shift(hours=1)
+        return arrow.get(brevet_start_time).shift(hours=1)
     start_time = arrow.get(brevet_start_time)
     if control_dist_km >= brevet_dist_km:
         duration = final_close[brevet_dist_km]

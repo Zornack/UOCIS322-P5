@@ -67,7 +67,7 @@ def _calc_times():
     if (km < 0):
         error = "The distance can not be negative."
         open_time = None
-        close_time = Nonecd
+        close_time = None
         result = {"open": open_time, "close": close_time, "error": error}
         return flask.jsonify(result=result)
 
